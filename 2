@@ -1,0 +1,56 @@
+class Main {
+    public static void main(String[] args) {
+
+        double[][] matrix1 = {{1.0, 2.0},{3.0, 4.0}};
+        double[][] matrix2 = {{2.0, 1.0},{4.0, 5.0}};
+        Matrix.printMatrix(Matrix.addMatrixes(matrix1, matrix2)); //требуется вывод на экран
+        Matrix.printMatrix2(Matrix.MatrixOnNumber(matrix1, 10)); // умножение на число
+    }
+}
+
+class Matrix {
+    static int m = 2; // строки
+    static int n = 2; // столбцы
+    Matrix[][] A = new Matrix[m][n];
+
+    static double[][] addMatrixes(double[][] matrix1, double[][] matrix2) { //метод сложения
+        double matrix_result[][] = new double[2][2];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix_result[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        return matrix_result;
+    }
+
+    static double[][] MatrixOnNumber(double[][] matrix_out_1, int k) {  //метод умножения на число
+        double matrix_result2[][] = new double[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix_result2[i][j] = matrix_out_1[i][j] * k;
+            }
+        }
+        return matrix_result2;
+    }
+
+    public static void printMatrix(double[][] matrix_out) {  //вывод сложения
+        System.out.println("Результат сложения матриц: ");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.printf("%.1f ", matrix_out[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printMatrix2(double[][] matrix_out) {
+        System.out.println("Результат умножения матрицы на число: ");  //вывод умножения на число
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.printf("%.1f ", matrix_out[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
+
