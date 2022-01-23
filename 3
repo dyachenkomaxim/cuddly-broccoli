@@ -1,0 +1,100 @@
+
+//Создайте класс Phone, который содержит переменные number, model и weight.
+// Создайте три экземпляра этого класса. Выведите на консоль значения всех переменных каждого объекта.
+
+
+//Добавьте в класс Phone методы: receiveCall, который имеет один параметр – имя звонящего и который выводит
+// на консоль сообщение “Звонит {name}”,
+//getNumber – возвращает номер телефона.
+// Вызвать эти методы для каждого из объектов.
+
+
+//Добавить конструктор в класс Phone, который принимает на вход три параметра для инициализации
+// переменных класса - number, model и weight.
+//Добавить конструктор, который принимает на вход два параметра для инициализации переменных класса -
+// number, model.
+// Добавить конструктор без параметров.
+//
+// Вызвать из конструктора с тремя параметрами конструктор с двумя.
+
+
+//Добавьте перегруженный метод receiveCall, который принимает два параметра - имя звонящего и номер телефона
+// звонящего. Вызвать этот метод.
+
+
+//Создать метод sendMessage с аргументами переменной длины.
+//Данный метод принимает на вход номера телефонов, которым будет отправлено сообщение.
+// Метод выводит на консоль номера этих телефонов.
+
+public class Application2 {
+    public static void main(String[] args) {
+        Phone phone1 = new Phone(); //3 экземпляра класса Phone
+        Phone phone2 = new Phone();
+        Phone phone3 = new Phone();
+
+        System.out.printf("Number: %s, Model: %s, Weight: %d\n",phone1.number,phone1.model,phone1.weight); //вывод на консоль всех переменных каждого объекта
+        System.out.printf("Number: %s, Model: %s, Weight: %d\n",phone2.number,phone2.model,phone2.weight);
+        System.out.printf("Number: %s, Model: %s, Weight: %d\n",phone3.number,phone3.model,phone3.weight);
+
+        phone1.receiveCall("Max"); //вызов метода для каждого из объектов
+        phone2.receiveCall("Alex");
+        phone3.receiveCall("Roman");
+
+        phone1.getNumber("+231231");//вызов метода для каждого из объектов
+        phone2.getNumber("+231231");
+        phone3.getNumber("+231231");
+
+        phone1.receiveCall("Max", "+45464564444");
+        phone2.receiveCall("Alex","+31213133123");
+        phone3.receiveCall("Roman","+74423232332");
+
+        phone1.sendMessage("+432323232323","+31213133123","74423232332");
+    }
+}
+class Phone {
+
+    String number;   //переменные
+    String model;
+    Integer weight;
+
+    void receiveCall(String name) {     //метод
+        System.out.printf("Звонит %s\n", name);
+    }
+
+    void getNumber(String number) { //возврат номера
+        System.out.printf("Номер %s\n", number);
+        return;
+
+    }
+    void receiveCall(String name, String phone ) { //перегруженный метод
+        System.out.printf("(перегруженный)Звонит %s\n", name, phone);
+    }
+
+
+
+    //конструкторы
+    public Phone (String number, String model, int weight) { // 3 параметра
+        this(number, model);//вызов конструктора с 2 параметрами
+        this.weight = weight;
+    }
+
+    public Phone (String number, String model) { // 2 параметра
+        this.number = number;
+        this.model = model;
+    }
+
+    public Phone() {  //пустой
+
+    }
+
+
+    void sendMessage(String... T) {  //метод с аргументами пременно длины
+        for (int i = 0; i < T.length; i++) {
+            System.out.printf("Номер телефона: %s\n", T[i]);
+        }
+    }
+}
+
+
+
+
