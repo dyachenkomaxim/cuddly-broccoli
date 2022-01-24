@@ -20,7 +20,6 @@ public class Application2 {
         phone2.receiveCall("Alex","+31213133123");
         phone3.receiveCall("Roman","+74423232332");
 
-
         phone1.sendMessage("01","02","03"); //вызов метода с аргументами переменной длины
     }
 }
@@ -37,13 +36,11 @@ class Phone {
     String getNumber(String number) { //возврат номера
         System.out.printf("Номер: %s\n", number);
         return number;
-
     }
+
     void receiveCall(String name, String number ) { //перегруженный метод
         System.out.printf("Звонит %s номер: %s\n", name, number);
     }
-
-
 
     //конструкторы
     public Phone (String number, String model, int weight) { // 3 параметра
@@ -56,10 +53,9 @@ class Phone {
         this.model = model;
     }
 
-    public Phone() {  //пустой
+    public Phone() { //пустой
 
     }
-
 
     void sendMessage(String... T) {  //метод с аргументами пременно длины
         for (int i = 0; i < T.length; i++) {
